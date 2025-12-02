@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LakshyaSahayak — Redesign (HTML)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --muted: #64748B;
+      --text: #0F172A;
+      --primary: #2563EB;
+      --primary-700: #1E40AF;
+      --accent: #F59E0B;
+      --success: #10B981;
+      --danger: #F43F5E;
+      --radius: 14px;
+      --gap: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .app {
+      width:100%;
+      max-width:480px;
+      background:transparent;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:14px;
+    }
+    .logo-wrap{display:flex;align-items:center;gap:10px}
+    .logo-ico{
+      width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#FFB84D);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(37,99,235,0.08);
+    }
+    .logo-ico svg{width:26px;height:26px}
+    .app-title{font-family:Poppins, Inter;font-weight:700;font-size:18px}
+    .app-sub{font-size:12px;color:var(--muted)}
+
+    .card{
+      background:var(--card);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 8px 30px rgba(2,6,23,0.06);
+      overflow:hidden;
+    }
+
+    .hero{
+      display:flex;gap:12px;align-items:center;padding:12px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary-700));color:white;margin-bottom:14px;
+    }
+    .hero .left{flex:1}
+    .hero h1{margin:0;font-size:18px;font-family:Poppins}
+    .hero p{margin:6px 0 0 0;font-size:13px;opacity:0.9}
+    .mascot{
+      width:78px;height:78px;border-radius:12px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+
+    .grid{display:grid;grid-template-columns:1fr;gap:12px}
+
+    .btn{
+      display:flex;align-items:center;justify-content:center;gap:10px;padding:14px;border-radius:12px;border:0;cursor:pointer;font-weight:600;font-size:15px;
+    }
+    .btn-primary{background:var(--primary);color:white;box-shadow:0 8px 24px rgba(37,99,235,0.12)}
+    .btn-ghost{background:transparent;border:1px solid rgba(15,23,42,0.06);color:var(--text)}
+    .btn-accent{background:linear-gradient(90deg,var(--accent),#FFB84D);color:var(--text)}
+
+    .card-section{padding:12px 0}
+    .small{font-size:13px;color:var(--muted)}
+
+    .resource-card{
+      display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;background:linear-gradient(180deg,rgba(14,165,233,0.03),transparent);border:1px solid rgba(2,6,23,0.03)
+    }
+    .resource-icon{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--primary-700));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .resource-body{flex:1}
+    .resource-title{font-weight:700}
+    .resource-desc{font-size:13px;color:var(--muted);margin-top:4px}
+
+    footer{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:12px}
+    .meta{font-size:12px;color:var(--muted)}
+
+    /* Responsive tweaks */
+    @media (min-width:640px){
+      .grid{grid-template-columns:1fr 1fr}
+    }
+
+    /* download button in page */
+    .download-wrap{display:flex;gap:10px;margin-top:12px}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:rgba(2,6,23,0.04);font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="topbar">
+      <div class="logo-wrap">
+        <div class="logo-ico" aria-hidden>
+          <!-- torch svg -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C12 2 9.5 4 9.5 6.5C9.5 8.9 11.4 10.5 12 11C12.6 10.5 14.5 8.9 14.5 6.5C14.5 4 12 2 12 2Z" fill="white"/><path d="M7 21C7 17.6863 9.68629 15 13 15H11C14.3137 15 17 17.6863 17 21H7Z" fill="white"/></svg>
+        </div>
+        <div>
+          <div class="app-title">LakshyaSahayak</div>
+          <div class="app-sub">Your Academic Buddy • AI powered</div>
+        </div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+        <button class="chip" id="downloadHtmlBtn" title="Download this HTML">Download HTML</button>
+        <button class="chip" onclick="alert('Info: LakshyaSahayak — AI assistant for students')">i</button>
+      </div>
+    </div>
+
+    <div class="card" role="main">
+      <div class="hero" aria-hidden>
+        <div class="left">
+          <h1>Meet Lakshya — your AI study buddy</h1>
+          <p>Get free notes, topper strategies, and personalised help via chatbot.</p>
+        </div>
+        <div class="mascot">
+          <!-- simple robot mascot -->
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="7" width="18" height="11" rx="3" fill="rgba(255,255,255,0.12)"/><circle cx="12" cy="11.5" r="1.8" fill="#fff"/><rect x="8" y="3" width="8" height="4" rx="2" fill="#fff" opacity="0.15"/></svg>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <button class="btn btn-primary" onclick="openChat()">Start Chatbot — Ask your doubt</button>
+      </div>
+
+      <div class="card-section">
+        <div style="display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:8px">
+          <div style="font-weight:700">Quick Resources</div>
+          <div class="small">Curated for Class X</div>
+        </div>
+
+        <div class="resource-card" style="margin-bottom:10px">
+          <div class="resource-icon">NB</div>
+          <div class="resource-body">
+            <div class="resource-title">Free Notes — Class X (Handwritten)</div>
+            <div class="resource-desc">Download concise, examiner-focused handwritten notes.</div>
+          </div>
+          <button class="btn btn-ghost" onclick="alert('Open Notes')">Open</button>
+        </div>
+
+        <div class="resource-card" style="margin-bottom:10px">
+          <div class="resource-icon">EB</div>
+          <div class="resource-body">
+            <div class="resource-title">Free E-books & Supplementary</div>
+            <div class="resource-desc">PDFs and practice material organised by subject.</div>
+          </div>
+          <button class="btn btn-ghost" onclick="alert('Open E-books')">Open</button>
+        </div>
+
+        <div class="resource-card" style="margin-bottom:10px">
+          <div class="resource-icon">TS</div>
+          <div class="resource-body">
+            <div class="resource-title">Topper Strategies</div>
+            <div class="resource-desc">Study plans and time-management tips from toppers.</div>
+          </div>
+          <button class="btn btn-ghost" onclick="alert('Open Strategies')">Open</button>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-icon">MP</div>
+          <div class="resource-body">
+            <div class="resource-title">Motivation Punch</div>
+            <div class="resource-desc">Short motivational videos and punchy quotes to keep going.</div>
+          </div>
+          <button class="btn btn-ghost" onclick="alert('Open Motivation')">Open</button>
+        </div>
+      </div>
+
+      <footer>
+        <div class="meta">Designed for students • LakshyaSahayak</div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <div class="small">v1.0</div>
+          <div class="small">Offline ready</div>
+        </div>
+      </footer>
+
+    </div>
+
+    <div style="margin-top:12px;text-align:center;color:var(--muted);font-size:13px">This is a static HTML prototype — click <strong>Download HTML</strong> to save a copy.</div>
+
+  </div>
+
+  <script>
+    function openChat(){
+      alert('Launching Chatbot... (prototype)')
+    }
+
+    // Download HTML file logic — saves current page as standalone HTML
+    document.getElementById('downloadHtmlBtn').addEventListener('click', function(){
+      const doctype = '<!doctype html>';
+      const html = document.documentElement.outerHTML;
+      const full = doctype + '\n' + html;
+      const blob = new Blob([full], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'lakshyasahayak_redesign.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
